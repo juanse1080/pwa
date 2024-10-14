@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import InstallPrompt from "./_components/InstallPrompt";
 import { useEffect } from "react";
 import Form from "./_components/Form";
 

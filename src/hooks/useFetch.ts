@@ -14,7 +14,7 @@ const useFetch = <T>(url: string, options?: useFetchOptions<T>) => {
     try {
       setLoading(true);
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/${url}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/${url}`,
         options
       );
       if (!response.ok) throw new Error(response.statusText);
