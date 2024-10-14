@@ -1,5 +1,6 @@
 import { ChangeEvent, useCallback, useState } from "react";
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 const useForm = <T extends Record<string, any>>(initialValues: T) => {
   const [value, setValue] = useState<T>(initialValues);
 

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Pagination } from "../types";
+import { Pagination } from "@/types";
 import useFetch, { useFetchOptions } from "./useFetch";
 
 export const defaultPagination: Pagination = {
