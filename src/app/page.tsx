@@ -7,7 +7,7 @@ export default function Home() {
   useEffect(() => {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("/sw.js", { scope: "/docs" })
+        .register("/sw.js")
         .then((registration) => console.log("scope is: ", registration.scope));
     }
   }, []);
