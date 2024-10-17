@@ -1,23 +1,27 @@
 const cacheName = 'v1'
 
-const cacheClone = async (e) => {
-  const res = await fetch(e.request);
-  const resClone = res.clone();
+self.addEventListener('install', async function () {
+  console.log('Service worker installed');
+});
 
+self.addEventListener('activate', event => {
+  console.log('service worker activated');
+  event.waitUntil(self.clients.claim());
+});
 
-  const cache = await caches.open(cacheName);
-  await cache.put(e.request, resClone);
-  return res;
-};
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  event.respondWith(networkFirst(cacheName, request));
+});
 
-const fetchEvent = () => {
-  self.addEventListener('fetch', (e) => {
-    e.respondWith(
-      cacheClone(e)
-        .catch(() => caches.match(e.request))
-        .then((res) => res)
-    );
-  });
-};
-
-fetchEvent();
+async function networkFirst(key, request) {
+  const cache = await caches.open(key);
+  try {
+    const networkResponse = await fetch(request);
+    cache.put(request, networkResponse.clone());
+    return networkResponse;
+  } catch (err) {
+    const cachedResponse = await cache.match(request);
+    return cachedResponse
+  }
+}
