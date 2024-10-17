@@ -12,6 +12,8 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+  if(!event.request.url.startsWith('http')) return;
+
   const request = event.request;
   event.respondWith(networkFirst(cacheName, request));
 });
