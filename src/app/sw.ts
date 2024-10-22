@@ -1,4 +1,4 @@
-import { defaultCache, PAGES_CACHE_NAME } from "@serwist/next/worker";
+import { PAGES_CACHE_NAME } from "@serwist/next/worker";
 import type { PrecacheEntry, RuntimeCaching, SerwistGlobalConfig } from "serwist";
 import { CacheFirst, ExpirationPlugin, NetworkFirst, RangeRequestsPlugin, Serwist, StaleWhileRevalidate } from "serwist";
 
