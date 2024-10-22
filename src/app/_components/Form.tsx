@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Card, TextField } from "@/components";
 import { useForm } from "@/hooks";

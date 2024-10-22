@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Card, TextField } from "@/components";
+import { Button, TextField } from "@/components";
 import { useForm } from "@/hooks";
 
 const Form = () => {
