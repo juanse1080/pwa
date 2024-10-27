@@ -20,7 +20,7 @@ const useForm = <T extends Record<string, any>>(initialValues: T) => {
 
   const reset = useCallback(() => {
     setValue(initialValues);
-  }, []);
+  }, [initialValues]);
 
   return { value, reset, handleChange, handleCheckbox };
 };
